@@ -9,11 +9,11 @@
 <apex:page >
     <apex:includeLightning />
 
-    <div id="lightningvf" />
+    <div id="lightningvf"></div>
 
     <script>
         $Lightning.use("c:lwcDemoAuraApp", function() {
-          $Lightning.createComponent("c:demoLWC",
+          $Lightning.createComponent("c:accountsListLwc",
               {},
               "lightningvf",
               function(cmp) {

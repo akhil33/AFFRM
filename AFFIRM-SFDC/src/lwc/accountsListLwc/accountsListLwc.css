@@ -1,0 +1,6 @@
+/**
+ * Created by reddy on 2022-04-08.
+ */
+:host{
+    --lwc-colorBackgroundRowSelected: rgb(103, 231, 156);
+}

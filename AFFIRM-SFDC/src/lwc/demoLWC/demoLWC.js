@@ -88,11 +88,11 @@ export default class DemoLWC extends LightningElement {
             return this.checkValid(this.selectedAccountRec) && this.checkValid(this.selectedAccountRec.Type) ? this.selectedAccountRec.Type : "";
         }
     
-        get ownername() {
-            return this.checkValid(this.selectedAccountRec) && this.checkValid(this.selectedAccountRec.Owner.Name) ? this.selectedAccountRec.Owner.Name : '';
-        }
-        get ownerphoto() {
-            return this.checkValid(this.selectedAccountRec) && this.checkValid(this.selectedAccountRec.Owner.SmallPhotoUrl) ? this.selectedAccountRec.Owner.SmallPhotoUrl : '';
-        }
+    get ownername() {
+        return this.checkValid(this.selectedAccountRec) && this.checkValid(this.selectedAccountRec.Owner.Name) ? this.selectedAccountRec.Owner.Name : '';
+    }
+    get ownerphoto() {
+        return this.checkValid(this.selectedAccountRec) && this.checkValid(this.selectedAccountRec.Owner.SmallPhotoUrl) ? this.selectedAccountRec.Owner.SmallPhotoUrl : '';
+    }
     
 }

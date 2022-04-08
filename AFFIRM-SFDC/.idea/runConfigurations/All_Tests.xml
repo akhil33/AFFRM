@@ -4,7 +4,7 @@
     <option name="allowRunningInParallel" value="false" />
     <option name="apexLogLevel" value="DEBUG" />
     <option name="calloutsLogLevel" value="INFO" />
-    <option name="connectionName" value="AR-PANDEY" />
+    <option name="connectionName" value="AFFIRM" />
     <option name="connectionType" value="OAUTH" />
     <option name="contextConfiguration" value="false" />
     <option name="databaseLogLevel" value="INFO" />

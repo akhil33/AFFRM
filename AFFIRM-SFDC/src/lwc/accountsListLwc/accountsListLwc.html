@@ -1,0 +1,78 @@
+<!--
+ - Created by reddy on 2022-04-08.
+ -->
+
+<!-- Accounts List Lwc -->
+<template><br/><br/>
+    <lightning-card title="Accounts" icon-name="standard:account">
+        <div style="height: 300px;">
+            <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    columns={columns}
+                    onrowaction={callRowAction}
+                    max-row-selection="1">
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+
+    <!-- This Modal will only be visible if showModal is set to true -->
+    <template if:true={showModal}>
+        <section aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div if:true={spinner} class="slds-p-top_small">
+                <div style="height:3rem">
+                    <div class="slds-spinner_container">
+                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div if:false= {spinner} class="slds-modal__container ">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_small">Account Details</h2>
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal}></lightning-icon>
+                </header>
+                <div  class="slds-grid slds-wrap slds-modal__content">
+                    <div class="slds-col">
+                        <div >
+                            <div class="slds-p-around_small">
+                                <p>Account Name: {name}</p>
+                            </div>
+                            <div class="slds-p-around_small">
+                                <p>Account Industry: {industry}</p>
+                            </div>
+                            <div class="slds-p-around_small">
+                                <p>Type: {type}</p>
+                            </div>
+                            <div class="slds-p-around_small">
+                                <p>Owner Name: {ownername}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col ">
+
+                        <div >
+                            <div if:true={ownerphoto} class="slds-p-around_small">
+                                <p><img src={ownerphoto} alt="User Image" height="150px" width="100px"/></p>
+                            </div>
+                            <div  class="slds-p-around_small">
+                                <p>Owner Photo</p>
+                            </div>
+                            <div  class="slds-p-around_small">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="brand" label="Back" onclick={closeModal} class="slds-p-around_x-small"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

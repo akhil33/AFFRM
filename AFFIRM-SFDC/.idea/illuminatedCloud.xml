@@ -4,10 +4,10 @@
     <option name="connections">
       <list>
         <IlluminatedCloudConnection>
-          <option name="connectionName" value="AR-PANDEY" />
+          <option name="connectionName" value="AFFIRM" />
           <option name="connectionType" value="OAUTH" />
           <option name="defaultModuleName" value="AFFIRM" />
-          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/AR_PANDEY/OfflineSymbolTable.zip" />
+          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/AFFIRM/OfflineSymbolTable.zip" />
         </IlluminatedCloudConnection>
       </list>
     </option>
