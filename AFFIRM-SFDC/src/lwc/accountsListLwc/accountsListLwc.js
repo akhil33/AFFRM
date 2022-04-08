@@ -10,8 +10,6 @@ import getAccountRec from '@salesforce/apex/AccountsListPOCController.retrieveAc
 
 const columns = [
     { label: 'Name', fieldName: 'Name' },
-    { label: 'Website', fieldName: 'Phone', type: 'phone' },
-    { label: 'Phone', fieldName: 'Industry'},
     {type: "button", typeAttributes: {
         label: 'Next',
         name: 'View',
