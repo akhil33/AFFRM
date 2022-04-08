@@ -1,0 +1,121 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-08-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={showList}>
+    <lightning-card title="List of Accounts" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <template if:true={retrievedAccountList}>
+                <template for:each={retrievedAccountList} for:item="x">
+                   <p key={x.Id}> 
+                    <lightning-button  label={x.Name}  class="slds-m-left_x-small" data-recid={x.Id} onclick={handleClick}></lightning-button></p>
+                </template>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+        </div>
+        <lightning-button  label="Next"  class="slds-m-left_x-small" onclick={handleNext}></lightning-button>
+    </lightning-card>
+    <!-- </lightning-radio-group> -->
+    
+</template>
+<template if:false={showList}>
+    <!-- <lightning-record-view-form 
+    object-api-name="Account" 
+    record-id={selectedRecordId}>
+    <lightning-output-field field-nam="Name"></lightning-output-field>    
+    <lightning-output-field field-nam="Industry"></lightning-output-field>    
+	<lightning-output-field field-nam="Rating"></lightning-output-field>    
+    </lightning-record-view-form> -->
+    <!-- </lightning-radio-group> -->
+   
+
+   <div class="formfield slds-border_bottom slds-list_horizontal"  if:true={name}>
+    <label>Name</label>
+    <lightning-formatted-text value={name}
+        class="slds-text-heading_small">
+    </lightning-formatted-text>
+   </div>
+   <div class="formfield slds-border_bottom slds-list_horizontal"  if:true={industry}>
+    <label>Industry</label>
+    <lightning-formatted-text value={industry}
+        class="slds-text-heading_small">
+    </lightning-formatted-text>
+   </div>
+   <div class="formfield slds-border_bottom slds-list_horizontal"  if:true={type}>
+    <label>Type</label>
+    <lightning-formatted-text value={type}
+        class="slds-text-heading_small">
+    </lightning-formatted-text>
+   </div>
+   <div class="formfield slds-border_bottom slds-list_horizontal"  if:true={ownername}>
+    <label>Owner Name</label>
+    <lightning-formatted-text value={ownername}
+        class="slds-text-heading_small">
+    </lightning-formatted-text>
+   </div>
+   <div class="formfield slds-border_bottom slds-list_horizontal"  if:true={ownerphoto}>
+    <label>Owner Photo</label>
+    <lightning-formatted-text value={ownerphoto}
+        class="slds-text-heading_small">
+    </lightning-formatted-text>
+        <lightning-card>
+            <b>{name} - </b>
+            <img 
+                src={ownerphoto} 
+                alt="User Image" 
+                height="100px" 
+                width="100px"/>
+        </lightning-card>
+   </div>
+<!-- <div class="slds-col slds-size_1-of-2"  if:true={selectAccountRec}>
+    <lightning-formatted-text value={selectAccountRec.Owner.Name}
+        class="slds-text-heading_large">
+    </lightning-formatted-text>
+</div> -->
+   <!-- <lightning-record-form record-id={selectedRecordId} object-api-name={objectApiName} mode="view" 
+                fields={fieldsFormatted} onload={handleOnLoad}>
+            </lightning-record-form> -->
+    <lightning-button  label="Back"  class="slds-m-left_x-small" onclick={handleBack}></lightning-button>
+</template>
+    <template if:true={showList}>
+        <lightning-card title="Accounts" icon-name="standard:account">
+            <div class="slds-card__body_inner">
+                <!-- Start acct list -->
+                <template if:true={showList}>
+                    <lightning-layout multiple-rows="true" pull-to-boundary="small">
+                        <template for:each={retrievedAccountList} for:item="acct">
+                            <lightning-layout-item key={acct.Id} size="3" class="slds-var-p-around_x-small">
+                                <!-- Start acct tile -->
+                                <lightning-card class="acct-tile">
+                                    <div class="slds-var-p-horizontal_small acct-tile-body">
+                                        <div class="slds-media">
+                                            
+                                            <div class="slds-media__body">
+                                                <p class="slds-var-m-bottom_xx-small">{acct.Name}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </lightning-card>
+                                <!-- End acct tile -->
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </template>
+                <!-- End acct list -->
+                <!-- Data failed to load -->
+                <template if:true={error}>
+                    <div class="slds-text-color_error">
+                        An error occurred while loading the acct list
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+
+</template>
