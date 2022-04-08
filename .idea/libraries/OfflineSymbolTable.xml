@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OfflineSymbolTable">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AFFIRM-SFDC/IlluminatedCloud/AFFIRM/OfflineSymbolTable.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

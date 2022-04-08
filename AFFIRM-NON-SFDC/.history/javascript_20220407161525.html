@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+      // Do not use jQuery or any other libraries for these JavaScript questions.
+
+      // Q1) Complete this function that receives an array of numbers and returns the sum of the values in the array.
+
+     /*    Answer */
+      function sumNumberArray(numArray) {
+        return numArray.reduce(function (x, y) {
+                  return x + y;
+                }, 0);
+      }
+
+
+      //The following questions below will use this array of Contact objects
+      var contacts = [
+        { account: "Acme", firstName: "John", lastName: "Snow" },
+        { account: "Metal Industries", firstName: "Ted", lastName: "Smith" },
+        { account: "Acme", firstName: "Sara", lastName: "Butler" },
+        { account: "HiTech Corp", firstName: "Sam", lastName: "Johnson" },
+        { account: "HiTech Corp", firstName: "Arnold", lastName: "Williams" },
+        { account: "Metal Industries", firstName: "Jessica", lastName: "Westcoat" },
+        { account: "Acme", firstName: "Kyle", lastName: "Johnson" },
+        { account: "HiTech Corp", firstName: "Jason", lastName: "Fernandez" },
+      ];
+
+      //Given the code below.....
+      var contact = contacts[0];
+      contact.firstName = "Scott";
+
+
+      // Q2 ) What is the value of contacts[0].firstName? Why?
+      /*    Answer */
+
+        // Value will be Scott as variable contact is pointing to the contacts objects' first index i.e both Contacts[0] and contact pointing at same object. In other words object elements are assigned by reference i.e.
+        // the variable 'contact' is created as an object and the reference/pointer of the 'contacts[0]' is assigned
+
+      /*    Answer ends */
+
+      //Similarly, given the following array of numbers
+      var numberArray = [3, 44, 64];
+      var num = numberArray[0];
+      num = 13;
+
+
+      // Q3) What will be the value of numberArray[0]? Why?
+      /*    Answer */
+
+        // the value will be 3 because variable 'num' is assigned with value of array element and numberArray and num are independent of each other
+
+      /*    Answer ends */
+
+
+      // Q4) Complete the convertAccountArrayToObject() function below that accepts an array like 'contacts' above and
+      // returns an object with the following object structure below where the key is account name and value is an array of alphabetized full names
+      var acctContactObject = {
+        Acme: ["John Snow", "Kyle Johnson", "Sara Butler"],
+        "HiTech Corp": ["Arnold Williams", "Jason Fernandez", "Sam Johnson"],
+        "Metal Industries": ["Jessica Westcoat", "Ted Smith"],
+      };
+
+
+      /*    Answer */
+
+      function convertAccountArrayToObject1(contacts) {
+          //Return an object structured like the 'acctContactObject' object above
+          var returnObject = {}; //declare an object
+
+          Object.values(contacts) .forEach(x =>{ // iterate through object and use itinerary operator to assign the property and its value.
+            returnObject[x.account] = x.account in returnObject ?
+              [...returnObject[x.account], x.firstName + ' ' +x.lastName] .sort() :
+                [x.firstName + ' ' +x.lastName];
+
+          });
+          return returnObject;
+        }
+
+      /*    Answer ends */
+
+      // Q5) See the question in the call back function
+      /*  Answer  */
+        
+        // The variable 'accountId' is declared inside the function as var hence it is available since the scope of 'var' variables are of function scope
+      
+      /* Answer Ends */
+      
+      
+      function getContacts() {
+        var accountId = "123abc";
+
+        $.get("ajax/contacts.json?id=" + accountId, function (data) {
+          //This is an asynchronous callback function
+          //This is inside an anonymous function executing asynchronously in a seperate context but it still has the ability to read the value
+          // in the 'accountId' var. Why?
+          console.log("I see you " + accountId);
+        });
+      }
+
+
+      // Q6) What is the difference between the == operator and the === operator? Give an example of why may use one instead of the other.
+
+        /* Ans
+
+              == is equal operator and it just compares the value irrespective of type e.g: 1 == "1" will return true but it is not ideal
+              === is strict type equal operator and it validates both value as well as type e.g" 1 == "1" will return false since both are not of same type.
+
+              e.g:
+                null == undefined will true but they are of different types.
+                null === undefined will return false
+
+        */
+
+      // Q7) What will the output of the following function be? You can easily run this function and see the output but also explain why?
+
+        /* Ans
+                Since javascript is a single threaded the callback of setTimeout will be called only after all other functions executed so console will print
+                1
+                4
+                3 since the callback of '3' will be early to the queue hence logged before '2'.
+                2
+
+        */
+
+      function doTimeouts() {
+        console.log(1);
+        setTimeout(function () {
+          console.log(2);
+        }, 1000);
+        setTimeout(function () {
+          console.log(3);
+        }, 0);
+        console.log(4);
+      }
+
+
+      // Q8) JavaScript includes basic string functions like toLowerCase() and toUpperCase(). JavaScript provides a mechanism to attach 
+			// custom methods to core objects like String. Do what is necessary to make the commented line below work and output the reversed 
+			// value of the 'productName' var.
+
+      var productName = "Smartsheet";
+    /*    Answer */
+
+            String.prototype.reverse = function(){
+              return this.toString().split("") .reverse() .join('');
+            };
+           // console.log( productName.reverse());
+
+
+    /*    Answer Ends */
+
+
+
+    </script>
+  </head>
+  <body>
+    <p>View the source code of this page and answer the questions/complete the code.</p>
+  </body>
+</html>

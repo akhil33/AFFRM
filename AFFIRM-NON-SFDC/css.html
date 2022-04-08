@@ -1,0 +1,122 @@
+<html>
+	<head>
+
+		<style type="text/css">
+			/* Add styles here */
+			@import url(//fonts.googleapis.com/css?family=Open+Sans);
+			body {
+				background: #efefef;
+				font-family: 'Open Sans', sans-serif;
+				font-size: 14px;
+				line-height: 24px;
+				padding: 50px;
+			  }
+			  
+			  h1 {
+				font-size: 30px;
+				line-height: 45px;
+			  }
+
+			  .ws-table-all {
+				border-collapse: collapse;
+				display: inline-block;
+				border-spacing: 0;
+				width: 40%;
+				border: 1px solid rgb(211,211,211);
+				text-align: center;
+				vertical-align:middle;
+				border-radius: 25px;
+			  }
+
+			  .ws-table-all:hover {
+				border-color: rgb(49, 49, 49);
+				background-color: rgb(145, 142, 142);
+				}
+
+			  .btn {
+				font-size: 14px;
+				line-height: 45px;
+				background-color: rgb(211,211,211);
+			  }
+
+			  div.accountList > * {
+				background-color: rgb(123, 182, 146);
+				border: 1px solid;
+				margin: 10px;
+  				padding: 10px;
+  				box-shadow: 5px 10px 8px #888888;
+				border-collapse: collapse;
+			  }
+
+			  div:nth-child(5) {
+				background: red;
+			  }
+
+			  div:nth-child(2) {
+				background: rgb(250, 121, 1);
+			  }
+			  
+			  /* div elements can be counted using
+			  	#test {counter-reset:test;}
+				#test > div {counter-increment:test;}
+				#result:before {content:counter(test);}
+			  */
+
+			  #bodyWrapper {
+				/* Center horizontally*/
+				text-align: center;
+			  }
+
+			  @media screen and (max-width: 1024px) {
+				#logo {
+				  float: none;
+				  margin: 0;
+				  text-align: center;
+				  display: block;
+				  width: auto;
+				}
+			  }
+		</style>
+
+	</head>
+
+	<body>
+		<!-- Give the entire document some nicer font -->
+
+		<div id="bodyWrapper" media="screen">
+			<!--This div should align in the center of the page and never be wider than 1024px -->
+
+			<span class="btn ws-table-all">
+				Click me!
+				<!--
+				This should be grey with rounded corders
+				It should have some nice spacing between the text and the outside of the button
+				On mouse hover it should be slightly darker grey
+				When depressed or clicked it should be very dark grey but font should still be readable
+				For each state, the border should be a slightly darker color than the background
+				-->
+			</span>
+
+			<br/>
+			<br/>
+
+			<div class="accountList">
+				<!-- Default color of all these divs should be some shade of green, do not add any additional class names -->
+				<!-- Each div should also have a nice soft drop shadow and adequate spacing between each item to show this shadow -->
+				<div>Acme</div>
+				<div class="alert">Widgets Inc. <!--background should be red, do not change the class name from 'alert'--></div>
+				<div>Gears and Bearings</div>
+				<div>Computer City</div>
+			<div>
+
+			<br/>
+			<br/>
+
+			<div class="alert">
+				<!--background should be orange, do not change the class name from 'alert'-->
+				Uh oh, something broke
+			</div>
+
+		</div>
+	</body>
+</html>

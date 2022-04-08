@@ -1,0 +1,234 @@
+<html>
+	<head>
+		<style type="text/css">
+			table { border-collapse: collapse; border: solid 1px black; }
+			td, th { border: solid 1px #333; padding: 2px 6px; }
+		</style>
+	</head>
+
+	<body>
+		<p>It's great if you can answer these questions in Salesforce SOQL, but standard SQL is okay as well.</p>
+		
+		<p>For all of the questions, assume you have a database with the following tables and data:</p>
+		
+		<b>Movie</b>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Year</th>
+				<th>Budget</th>
+				<th>Oscars</th>
+				<th>Director</th>
+			</tr>
+			<tr>
+				<td>Moulin Rouge!</td>
+				<td>2001</td>
+				<td>52500000</td>
+				<td>2</td>
+				<td>Baz Luhrmann</td>
+			</tr>
+			<tr>
+				<td>Mystic River</td>
+				<td>2003</td>
+				<td>30000000</td>
+				<td>2</td>
+				<td>Clint Eastwood</td>
+			</tr>
+			<tr>
+				<td>A Few Good Men</td>
+				<td>1992</td>
+				<td>33000000</td>
+				<td>0</td>
+				<td>Rob Reiner</td>
+			</tr>
+			<tr>
+				<td>Dirty Harry</td>
+				<td>1971</td>
+				<td>4000000</td>
+				<td>0</td>
+				<td>Don Siegel</td>
+			</tr>
+			<tr>
+				<td>The Terminator</td>
+				<td>1984</td>
+				<td></td>
+				<td>0</td>
+				<td>James Cameron</td>
+			</tr>
+		</table>
+
+		<br/>
+		<b>Actor</b>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Movie</th>
+				<th>Character</th>
+				<th>BirthYear</th>
+				<th>BirthCountry</th>
+			</tr>
+			<tr>
+				<td>Kevin Bacon</td>
+				<td>Mystic River</td>
+				<td>Sean Devine</td>
+				<td>1958</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Sean Penn</td>
+				<td>Mystic River</td>
+				<td>Jimmy Markum</td>
+				<td>1960</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Laura Linney</td>
+				<td>Mystic River</td>
+				<td>Annabeth Markum</td>
+				<td>1964</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Nicole Kidman</td>
+				<td>Moulin Rouge!</td>
+				<td>Satine</td>
+				<td>1967</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Ewan McGregor</td>
+				<td>Moulin Rouge!</td>
+				<td>Christian</td>
+				<td>1971</td>
+				<td>UK</td>
+			</tr>
+			<tr>
+				<td>Kevin Bacon</td>
+				<td>A Few Good Men</td>
+				<td>Captain Jack Ross</td>
+				<td>1958</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Tom Cruise</td>
+				<td>A Few Good Men</td>
+				<td>Lieutenant Daniel Kaffee</td>
+				<td>1962</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Demi Moore</td>
+				<td>A Few Good Men</td>
+				<td>Lieutenant Commander JoAnne Galloway</td>
+				<td>1962</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Jack Nicholson</td>
+				<td>A Few Good Men</td>
+				<td>Colonel Nathan R. Jessup</td>
+				<td></td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Clint Eastwood</td>
+				<td>Dirty Harry</td>
+				<td>Harry Callahan</td>
+				<td>1930</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Harry Guardino</td>
+				<td>Dirty Harry</td>
+				<td>Al Bressler</td>
+				<td>1925</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Arnold Schwarzenegger</td>
+				<td>The Terminator</td>
+				<td>The Terminator</td>
+				<td>1947</td>
+				<td>Austria</td>
+			</tr>
+		</table>
+
+		<br/>
+		<b>Director</b>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Movie</th>
+				<th>Birthday</th>
+				<th>Nationality</th>
+			</tr>
+			<tr>
+				<td>Baz Luhrmann</td>
+				<td>Moulin Rouge!</td>
+				<td>September 17, 1962</td>
+				<td>Australian</td>
+			</tr>
+			<tr>
+				<td>Clint Eastwood</td>
+				<td>Mystic River</td>
+				<td>May 31, 1930</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Don Siegel</td>
+				<td>Dirty Harry</td>
+				<td>October 26, 1912</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>Robert Reiner</td>
+				<td>A Few Good Men</td>
+				<td>March 6, 1947</td>
+				<td>US</td>
+			</tr>
+			<tr>
+				<td>James Cameron</td>
+				<td>The Terminator</td>
+				<td>August 16, 1954</td>
+				<td>CA</td>
+			</tr>
+		</table>
+
+
+		<p>1) If you designed the database, would you have done anything differently? What and why?
+			<br><br>
+			I would have redesigned the data model to have 3 tables namely 1. 'Movie' 2. 'Movie Cast and Crew' 3. 'Person'
+			<br><br><strong>
+			1. Movie - The Movie table will almost remains the same. <br>
+			2. Movie Cast and Crew - This will be the juntion Objects to hold cast informaion for the perticular Movie. Junction is ideal in this situation since a movie can have n cast, and a person can be part of n number of movie.<br>
+			3. Person - This will hold the information all individuals or the crew. This eleminated the need of assigning the perticular role of an idivual since the above juntion objects can have data point to assign role per mover per person
+			<br></strong><br>
+			Movie Cast and Crew will have following columns
+				Lookup to Movie 	<br>
+				Lookup to Person <br>
+				Role Type	<br>
+				Character Name <br> <br>
+		
+
+			The new data model has <br>
+			1. better maintanbility<br>
+			2. True representation<br>
+			3. Reduced data redundancy<br>
+
+		<p>2) Write a query that will tell us movie titles whose budgets were over 2,000,000 (or unknown) and did not receive any oscars.
+
+		<!--	
+			<p> select Name from Movie where Oscars = 0   // this querty will fetch the results mentioned but not a better coding style</p>
+			<p> Select Name from Movie where Oscars = 0 and (Budget is null or Budget > 2000000)  // preferred.</p>
+		-->
+
+		<p>3) Write a query that will tell us how many actors are in each movie.  Results should be alphabetized by the name of the movie.</p>
+
+		<!--
+			<p> Select Movie,Count(Name) from Actor group by Movie test order by Movie asc </p>
+		-->
+
+
+
+	</body>
+</html>

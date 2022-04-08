@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+      // Do not use jQuery or any other libraries for these JavaScript questions.
+
+      // Q1) Complete this function that receives an array of numbers and returns the sum of the values in the array.
+      function sumNumberArray(numArray) {
+
+			}
+
+      //The following questions below will use this array of Contact objects
+      var contacts = [
+        { account: "Acme", firstName: "John", lastName: "Snow" },
+        { account: "Metal Industries", firstName: "Ted", lastName: "Smith" },
+        { account: "Acme", firstName: "Sara", lastName: "Butler" },
+        { account: "HiTech Corp", firstName: "Sam", lastName: "Johnson" },
+        { account: "HiTech Corp", firstName: "Arnold", lastName: "Williams" },
+        { account: "Metal Industries", firstName: "Jessica", lastName: "Westcoat" },
+        { account: "Acme", firstName: "Kyle", lastName: "Johnson" },
+        { account: "HiTech Corp", firstName: "Jason", lastName: "Fernandez" },
+      ];
+
+      //Given the code below.....
+      var contact = contacts[0];
+      contact.firstName = "Scott";
+
+      // Q2 ) What is the value of contacts[0].firstName? Why?
+
+      //Similarly, given the following array of numbers
+      var numberArray = [3, 44, 64];
+      var num = numberArray[0];
+      num = 13;
+
+      // Q3) What will be the value of numberArray[0]? Why?
+
+      // Q4) Complete the convertAccountArrayToObject() function below that accepts an array like 'contacts' above and
+      // returns an object with the following object structure below where the key is account name and value is an array of alphabetized full names
+      var acctContactObject = {
+        Acme: ["John Snow", "Kyle Johnson", "Sara Butler"],
+        "HiTech Corp": ["Arnold Williams", "Jason Fernandez", "Sam Johnson"],
+        "Metal Industries": ["Jessica Westcoat", "Ted Smith"],
+      };
+
+      function convertAccountArrayToObject(contacts) {
+        //Return an object structured like the 'acctContactObject' object above
+      }
+
+      // Q5) See the question in the call back function
+      function getContacts() {
+        var accountId = "123abc";
+
+        $.get("ajax/contacts.json?id=" + accountId, function (data) {
+          //This is an asynchronous callback function
+          //This is inside an anonymous function executing asynchronously in a seperate context but it still has the ability to read the value
+          // in the 'accountId' var. Why?
+          console.log("I see you " + accountId);
+        });
+      }
+
+      // Q6) What is the difference between the == operator and the === operator? Give an example of why may use one instead of the other.
+
+      // Q7) What will the output of the following function be? You can easily run this function and see the output but also explain why?
+      function doTimeouts() {
+        console.log(1);
+        setTimeout(function () {
+          console.log(2);
+        }, 1000);
+        setTimeout(function () {
+          console.log(3);
+        }, 0);
+        console.log(4);
+      }
+
+      // Q8) JavaScript includes basic string functions like toLowerCase() and toUpperCase(). JavaScript provides a mechanism to attach 
+			// custom methods to core objects like String. Do what is necessary to make the commented line below work and output the reversed 
+			// value of the 'productName' var.
+
+      var productName = "Smartsheet";
+      //console.log( productName.reverse() );
+    </script>
+  </head>
+  <body>
+    <p>View the source code of this page and answer the questions/complete the code.</p>
+  </body>
+</html>
